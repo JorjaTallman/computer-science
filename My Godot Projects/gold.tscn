@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqbjd6wclf34t"]
+
+[ext_resource type="Script" path="res://gold.gd" id="1_b4450"]
+[ext_resource type="Texture2D" uid="uid://cqu6wklp1d0f5" path="res://Yellow_crystal1.png" id="1_f55d1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bbggn"]
+atlas = ExtResource("1_f55d1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_srash"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bbggn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_glyvf"]
+radius = 29.6153
+
+[node name="gold" type="Area2D"]
+script = ExtResource("1_b4450")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(37.5, 33)
+scale = Vector2(2.17188, 2.03125)
+sprite_frames = SubResource("SpriteFrames_srash")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(38, 27)
+scale = Vector2(2.17188, 2.03125)
+shape = SubResource("CircleShape2D_glyvf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

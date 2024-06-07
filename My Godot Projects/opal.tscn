@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwxn7pl6wlcs5"]
+
+[ext_resource type="Script" path="res://opal.gd" id="1_qgukc"]
+[ext_resource type="Texture2D" uid="uid://ct5eqw1omd1kf" path="res://Black_crystal1.png" id="1_yny1o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_77w1l"]
+atlas = ExtResource("1_yny1o")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oniyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_77w1l")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_874fw"]
+radius = 55.0364
+
+[node name="opal" type="Area2D"]
+position = Vector2(-8, 0)
+script = ExtResource("1_qgukc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(114.75, 2375.25)
+scale = Vector2(2.57032, 2.53906)
+sprite_frames = SubResource("SpriteFrames_oniyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(115, 2379)
+shape = SubResource("CircleShape2D_874fw")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

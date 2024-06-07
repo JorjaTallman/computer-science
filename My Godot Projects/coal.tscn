@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://fe3v373jmbvn"]
+
+[ext_resource type="Texture2D" uid="uid://b0188g72bqg2f" path="res://Rocks_source.png" id="1_i0em8"]
+[ext_resource type="Script" path="res://coal.gd" id="1_mffo8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nsul"]
+atlas = ExtResource("1_i0em8")
+region = Rect2(64, 0, 64, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e6dte"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nsul")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hpy7l"]
+radius = 58.9406
+
+[node name="coal" type="Area2D"]
+script = ExtResource("1_mffo8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(171, 155)
+scale = Vector2(1.79688, 1.81667)
+sprite_frames = SubResource("SpriteFrames_e6dte")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(174, 160)
+shape = SubResource("CircleShape2D_hpy7l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

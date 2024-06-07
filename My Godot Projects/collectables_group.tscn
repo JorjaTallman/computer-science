@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://boumxjqf348kl"]
+
+[ext_resource type="Script" path="res://collectables group.gd" id="1_bo55n"]
+[ext_resource type="PackedScene" uid="uid://bfrlvn4xeju6u" path="res://collectable.tscn" id="2_vswa6"]
+[ext_resource type="PackedScene" uid="uid://dn2761pi7dphb" path="res://area_2d.tscn" id="3_km58v"]
+[ext_resource type="PackedScene" uid="uid://byoxqs8vg0lyt" path="res://area_3d.tscn" id="4_r4pyf"]
+[ext_resource type="PackedScene" uid="uid://bwxn7pl6wlcs5" path="res://opal.tscn" id="5_idw8r"]
+
+[node name="collectables group" type="Node"]
+script = ExtResource("1_bo55n")
+
+[node name="collectable" parent="." instance=ExtResource("2_vswa6")]
+position = Vector2(2, -7)
+
+[node name="collectable2" parent="." instance=ExtResource("2_vswa6")]
+position = Vector2(-2, 181)
+
+[node name="collectable3" parent="." instance=ExtResource("2_vswa6")]
+position = Vector2(4, 376)
+
+[node name="collectable4" parent="." instance=ExtResource("2_vswa6")]
+position = Vector2(6, 562)
+
+[node name="silver" parent="." instance=ExtResource("3_km58v")]
+
+[node name="silver2" parent="." instance=ExtResource("3_km58v")]
+position = Vector2(0, 190)
+
+[node name="silver3" parent="." instance=ExtResource("3_km58v")]
+position = Vector2(21, 377)
+
+[node name="gold" parent="." instance=ExtResource("4_r4pyf")]
+
+[node name="gold2" parent="." instance=ExtResource("4_r4pyf")]
+position = Vector2(-3, 192)
+
+[node name="opal" parent="." instance=ExtResource("5_idw8r")]
+position = Vector2(25, 9)

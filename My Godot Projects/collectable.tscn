@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfrlvn4xeju6u"]
+
+[ext_resource type="Script" path="res://collectable.gd" id="1_6htox"]
+[ext_resource type="Texture2D" uid="uid://b0188g72bqg2f" path="res://Rocks_source.png" id="1_6wgal"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mpy11"]
+atlas = ExtResource("1_6wgal")
+region = Rect2(64, 0, 64, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h5tkv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mpy11")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jlcyb"]
+radius = 63.0079
+
+[node name="collectable" type="Area2D"]
+position = Vector2(-4, -10)
+script = ExtResource("1_6htox")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(115, 659)
+scale = Vector2(2.21875, 1.96667)
+sprite_frames = SubResource("SpriteFrames_h5tkv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(120, 660)
+shape = SubResource("CircleShape2D_jlcyb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

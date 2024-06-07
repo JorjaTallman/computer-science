@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn2761pi7dphb"]
+
+[ext_resource type="Texture2D" uid="uid://beyp8wk140id5" path="res://White_crystal1.png" id="1_7mh8v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bow8"]
+atlas = ExtResource("1_7mh8v")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_grx3o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bow8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o8f4o"]
+radius = 69.0072
+
+[node name="Area2D" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(120, 1419)
+scale = Vector2(2.4375, 2.53125)
+sprite_frames = SubResource("SpriteFrames_grx3o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(120, 1418)
+shape = SubResource("CircleShape2D_o8f4o")
